@@ -1,0 +1,26 @@
+{
+  "name": "aurelia-plugins-addthis",
+  "version": "1.0.0",
+  "description": "An AddThis plugin for Aurelia.",
+  "keywords": [
+    "aurelia",
+    "plugins",
+    "plugin",
+    "addthis"
+  ],
+  "homepage": "https://github.com/aurelia-plugins/aurelia-plugins-addthis",
+  "main": "dist/commonjs/aurelia-plugins-addthis.js",
+  "moduleType": "node",
+  "license": "MIT",
+  "authors": [
+    "Bart Lenaerts <bart@itprosolutions.be> (http://itprosolutions.be/)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/aurelia-plugins/aurelia-plugins-addthis"
+  },
+  "dependencies": {
+    "aurelia-dependency-injection": "^1.2.0",
+    "aurelia-templating": "^1.1.2"
+  }
+}
