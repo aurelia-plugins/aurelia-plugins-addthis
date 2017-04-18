@@ -75,6 +75,8 @@ The `language` attribute overrides the globally set language to the language def
 
 ```JS
 export class App {
+  constructor() {}
+
   description = 'Please share the AddThis plugin from Aurelia Plugins!';
   title = 'Aurelia Plugins - AddThis';
   url = 'https://github.com/aurelia-plugins/aurelia-plugins-addthis';
