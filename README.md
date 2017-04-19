@@ -24,18 +24,6 @@ bower install aurelia-plugins-addthis
 
 ## Configuration
 
-Add to `package.json`
-
-```json
-  "aurelia": {
-    "build": {
-      "resources": [
-        "aurelia-plugins-addthis"
-      ]
-    }
-  }
-```
-
 Inside of your `main.js` or `main.ts` file simply load the plugin inside of the configure method using `.plugin()`.
 
 ```javascript
@@ -63,17 +51,15 @@ Once the Addthis plugin is configured, to use it simply add the custom element `
  
 There are 5 optional attributes defined for this custom element, `class`, `description`, `language`, `title` and `url`.
 
-Use `description`, `title` and `url` to define the description, title and url that AddThis uses to generate the sharing popup of Facebook, Twitter,&hellip;
+* Use `description`, `title` and `url` to define the description, title and url that AddThis uses to generate the sharing popup of Facebook, Twitter,&hellip;
+* The `class` attribute adds an extra CSS class to the AddThis custom element.
+* The `language` attribute overrides the globally set language to the language defined in this property. Useful if a user can change the interface language of your application and you want AddThis to change accordingly.  
 
-The `class` attribute adds an extra CSS class to the AddThis custom element.
-
-The `language` attribute overrides the globally set language to the language defined in this property. Useful if a user can change the interface language of your application and you want AddThis to change accordingly.  
-
-```HTML
+```html
 <aup-addthis description.bind="description" title.bind="title" url.bind="url"></aup-addthis>
 ```
 
-```JS
+```javascript
 export class App {
   constructor() {}
 
@@ -95,7 +81,7 @@ By default the following buttons are shown:
 
 You can easily change the default template with your own buttons by placing the AddThis button tags in the content block of the `<aup-addthis>` element. 
 
-```HTML
+```html
 <aup-addthis>
   <a class="addthis_button_facebook"></a>
   <a class="addthis_button_twitter"></a>
