@@ -50,7 +50,7 @@ import { bindable, customElement } from 'aurelia-templating';
 
 import { Config } from './aurelia-plugins-addthis-config';
 
-export let Recaptcha = (_dec = customElement('aup-addthis'), _dec2 = inject(Element, Config), _dec(_class = _dec2(_class = (_class2 = class Recaptcha {
+export let AddThis = (_dec = customElement('aup-addthis'), _dec2 = inject(Element, Config), _dec(_class = _dec2(_class = (_class2 = class AddThis {
   constructor(element, config) {
     this._scriptPromise = null;
 

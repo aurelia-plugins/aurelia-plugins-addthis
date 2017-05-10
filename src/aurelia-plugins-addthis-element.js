@@ -11,7 +11,7 @@ import {Config} from './aurelia-plugins-addthis-config';
 
 
 // PUBLIC CLASS
-export class Recaptcha {
+export class AddThis {
   // PRIVATE PROPERTIES (DI)
   _config;
   _element;
