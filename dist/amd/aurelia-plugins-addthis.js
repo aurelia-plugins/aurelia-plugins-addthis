@@ -1,4 +1,4 @@
-define(['exports', './aurelia-plugins-addthis-config'], function (exports, _aureliaPluginsAddthisConfig) {
+define(['exports', 'aurelia-pal', './aurelia-plugins-addthis-config'], function (exports, _aureliaPal, _aureliaPluginsAddthisConfig) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -8,6 +8,6 @@ define(['exports', './aurelia-plugins-addthis-config'], function (exports, _aure
   function configure(aurelia, configCallback) {
     var instance = aurelia.container.get(_aureliaPluginsAddthisConfig.Config);
     if (configCallback !== undefined && typeof configCallback === 'function') configCallback(instance);
-    aurelia.globalResources('./aurelia-plugins-addthis-element');
+    aurelia.globalResources(_aureliaPal.PLATFORM.moduleName('./aurelia-plugins-addthis-element'));
   }
 });
