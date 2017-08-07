@@ -23,6 +23,7 @@ export class AddThis {
   @bindable class;
   @bindable description;
   @bindable language;
+  @bindable pubid;
   @bindable title;
   @bindable url;
 
@@ -30,7 +31,7 @@ export class AddThis {
   constructor(element, config) {
     this._config = config;
     this._element = element;
-    if (!this._config.get('pubid')) return console.error('No pubid has been specified.');
+    if (!this.pubid && !this._config.get('pubid')) return console.error('No pubid has been specified.');
     this._loadApiScript();
   }
 
@@ -44,7 +45,7 @@ export class AddThis {
     await this._scriptPromise;
     window.addthis_config = window.addthis_config || {};
     window.addthis_config.lang = this.language || this._config.get('lang');
-    window.addthis_config.pubid = this._config.get('pubid');
+    window.addthis_config.pubid = this.pubid || this._config.get('pubid');
     window.addthis.update('share', 'description', this.description);
     window.addthis.update('share', 'title', this.title);
     window.addthis.update('share', 'url', this.url);

@@ -1,4 +1,4 @@
-var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5;
+var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6;
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
@@ -60,13 +60,15 @@ export let AddThis = (_dec = customElement('aup-addthis'), _dec2 = inject(Elemen
 
     _initDefineProp(this, 'language', _descriptor3, this);
 
-    _initDefineProp(this, 'title', _descriptor4, this);
+    _initDefineProp(this, 'pubid', _descriptor4, this);
 
-    _initDefineProp(this, 'url', _descriptor5, this);
+    _initDefineProp(this, 'title', _descriptor5, this);
+
+    _initDefineProp(this, 'url', _descriptor6, this);
 
     this._config = config;
     this._element = element;
-    if (!this._config.get('pubid')) return console.error('No pubid has been specified.');
+    if (!this.pubid && !this._config.get('pubid')) return console.error('No pubid has been specified.');
     this._loadApiScript();
   }
 
@@ -81,7 +83,7 @@ export let AddThis = (_dec = customElement('aup-addthis'), _dec2 = inject(Elemen
       yield _this._scriptPromise;
       window.addthis_config = window.addthis_config || {};
       window.addthis_config.lang = _this.language || _this._config.get('lang');
-      window.addthis_config.pubid = _this._config.get('pubid');
+      window.addthis_config.pubid = _this.pubid || _this._config.get('pubid');
       window.addthis.update('share', 'description', _this.description);
       window.addthis.update('share', 'title', _this.title);
       window.addthis.update('share', 'url', _this.url);
@@ -117,10 +119,13 @@ export let AddThis = (_dec = customElement('aup-addthis'), _dec2 = inject(Elemen
 }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'language', [bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'title', [bindable], {
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'pubid', [bindable], {
   enumerable: true,
   initializer: null
-}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'url', [bindable], {
+}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'title', [bindable], {
+  enumerable: true,
+  initializer: null
+}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'url', [bindable], {
   enumerable: true,
   initializer: null
 })), _class2)) || _class) || _class);

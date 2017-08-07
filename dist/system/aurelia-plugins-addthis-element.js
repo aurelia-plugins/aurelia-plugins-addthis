@@ -3,7 +3,7 @@
 System.register(['aurelia-dependency-injection', 'aurelia-templating', './aurelia-plugins-addthis-config'], function (_export, _context) {
   "use strict";
 
-  var inject, bindable, customElement, Config, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, AddThis;
+  var inject, bindable, customElement, Config, _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, AddThis;
 
   function _asyncToGenerator(fn) {
     return function () {
@@ -105,13 +105,15 @@ System.register(['aurelia-dependency-injection', 'aurelia-templating', './aureli
 
           _initDefineProp(this, 'language', _descriptor3, this);
 
-          _initDefineProp(this, 'title', _descriptor4, this);
+          _initDefineProp(this, 'pubid', _descriptor4, this);
 
-          _initDefineProp(this, 'url', _descriptor5, this);
+          _initDefineProp(this, 'title', _descriptor5, this);
+
+          _initDefineProp(this, 'url', _descriptor6, this);
 
           this._config = config;
           this._element = element;
-          if (!this._config.get('pubid')) return console.error('No pubid has been specified.');
+          if (!this.pubid && !this._config.get('pubid')) return console.error('No pubid has been specified.');
           this._loadApiScript();
         }
 
@@ -131,7 +133,7 @@ System.register(['aurelia-dependency-injection', 'aurelia-templating', './aureli
                   case 2:
                     window.addthis_config = window.addthis_config || {};
                     window.addthis_config.lang = this.language || this._config.get('lang');
-                    window.addthis_config.pubid = this._config.get('pubid');
+                    window.addthis_config.pubid = this.pubid || this._config.get('pubid');
                     window.addthis.update('share', 'description', this.description);
                     window.addthis.update('share', 'title', this.title);
                     window.addthis.update('share', 'url', this.url);
@@ -184,10 +186,13 @@ System.register(['aurelia-dependency-injection', 'aurelia-templating', './aureli
       }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'language', [bindable], {
         enumerable: true,
         initializer: null
-      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'title', [bindable], {
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'pubid', [bindable], {
         enumerable: true,
         initializer: null
-      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'url', [bindable], {
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'title', [bindable], {
+        enumerable: true,
+        initializer: null
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'url', [bindable], {
         enumerable: true,
         initializer: null
       })), _class2)) || _class) || _class));

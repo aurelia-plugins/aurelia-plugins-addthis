@@ -5,6 +5,7 @@ export declare class AddThis {
     class: any;
     description: any;
     language: any;
+    pubid: any;
     title: any;
     url: any;
     constructor(element: any, config: any);
