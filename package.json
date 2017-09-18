@@ -1,6 +1,6 @@
 {
   "name": "aurelia-plugins-addthis",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "An AddThis plugin for Aurelia.",
   "keywords": [
     "aurelia",
@@ -45,7 +45,7 @@
   },
   "jspm": {
     "registry": "npm",
-    "main": "index",
+    "main": "aurelia-plugins-addthis",
     "format": "amd",
     "directories": {
       "dist": "dist/amd"
