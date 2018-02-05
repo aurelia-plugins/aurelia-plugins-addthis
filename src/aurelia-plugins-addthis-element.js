@@ -23,6 +23,7 @@ export class AddThis {
   @bindable class;
   @bindable description;
   @bindable language;
+  @bindable media;
   @bindable pubid;
   @bindable title;
   @bindable url;
@@ -36,23 +37,20 @@ export class AddThis {
   }
 
   // LIFECYCLE HANDLERS
-  bind() {
-    this._initialize();
-  }
-
-  // PRIVATE METHODS
-  async _initialize() {
+  async bind() {
     await this._scriptPromise;
     window.addthis_config = window.addthis_config || {};
     window.addthis_config.lang = this.language || this._config.get('lang');
     window.addthis_config.pubid = this.pubid || this._config.get('pubid');
     window.addthis.update('share', 'description', this.description);
+    window.addthis.update('share', 'media', this.media);
     window.addthis.update('share', 'title', this.title);
     window.addthis.update('share', 'url', this.url);
-    if (window.addthis.layers && window.addthis.layers.refresh) window.addthis.layers.refresh();
     window.addthis.toolbox(this._element, window.addthis_config, window.addthis_share);
+    if (window.addthis.layers && window.addthis.layers.refresh) window.addthis.layers.refresh();
   }
 
+  // PRIVATE METHODS
   _loadApiScript() {
     if (this._scriptPromise) return;
     if (window.addthis === undefined) {
@@ -63,9 +61,7 @@ export class AddThis {
       script.type = 'text/javascript';
       document.head.appendChild(script);
       this._scriptPromise = new Promise(resolve => {
-        const interval = setInterval(() => {
-          if (window.addthis !== undefined) { clearInterval(interval); resolve(); }
-        });
+        const interval = setInterval(() => { if (window.addthis !== undefined) { clearInterval(interval); resolve(); } });
       });
     }
     else if (window.addthis)

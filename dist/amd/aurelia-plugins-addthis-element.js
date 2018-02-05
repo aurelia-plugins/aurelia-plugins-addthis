@@ -84,7 +84,7 @@ define(['exports', 'aurelia-dependency-injection', 'aurelia-templating', './aure
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
   }
 
-  var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6;
+  var _dec, _dec2, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7;
 
   var AddThis = exports.AddThis = (_dec = (0, _aureliaTemplating.customElement)('aup-addthis'), _dec2 = (0, _aureliaDependencyInjection.inject)(Element, _aureliaPluginsAddthisConfig.Config), _dec(_class = _dec2(_class = (_class2 = function () {
     function AddThis(element, config) {
@@ -98,11 +98,13 @@ define(['exports', 'aurelia-dependency-injection', 'aurelia-templating', './aure
 
       _initDefineProp(this, 'language', _descriptor3, this);
 
-      _initDefineProp(this, 'pubid', _descriptor4, this);
+      _initDefineProp(this, 'media', _descriptor4, this);
 
-      _initDefineProp(this, 'title', _descriptor5, this);
+      _initDefineProp(this, 'pubid', _descriptor5, this);
 
-      _initDefineProp(this, 'url', _descriptor6, this);
+      _initDefineProp(this, 'title', _descriptor6, this);
+
+      _initDefineProp(this, 'url', _descriptor7, this);
 
       this._config = config;
       this._element = element;
@@ -110,11 +112,7 @@ define(['exports', 'aurelia-dependency-injection', 'aurelia-templating', './aure
       this._loadApiScript();
     }
 
-    AddThis.prototype.bind = function bind() {
-      this._initialize();
-    };
-
-    AddThis.prototype._initialize = function () {
+    AddThis.prototype.bind = function () {
       var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
@@ -128,12 +126,13 @@ define(['exports', 'aurelia-dependency-injection', 'aurelia-templating', './aure
                 window.addthis_config.lang = this.language || this._config.get('lang');
                 window.addthis_config.pubid = this.pubid || this._config.get('pubid');
                 window.addthis.update('share', 'description', this.description);
+                window.addthis.update('share', 'media', this.media);
                 window.addthis.update('share', 'title', this.title);
                 window.addthis.update('share', 'url', this.url);
-                if (window.addthis.layers && window.addthis.layers.refresh) window.addthis.layers.refresh();
                 window.addthis.toolbox(this._element, window.addthis_config, window.addthis_share);
+                if (window.addthis.layers && window.addthis.layers.refresh) window.addthis.layers.refresh();
 
-              case 10:
+              case 11:
               case 'end':
                 return _context.stop();
             }
@@ -141,11 +140,11 @@ define(['exports', 'aurelia-dependency-injection', 'aurelia-templating', './aure
         }, _callee, this);
       }));
 
-      function _initialize() {
+      function bind() {
         return _ref.apply(this, arguments);
       }
 
-      return _initialize;
+      return bind;
     }();
 
     AddThis.prototype._loadApiScript = function _loadApiScript() {
@@ -179,13 +178,16 @@ define(['exports', 'aurelia-dependency-injection', 'aurelia-templating', './aure
   }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'language', [_aureliaTemplating.bindable], {
     enumerable: true,
     initializer: null
-  }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'pubid', [_aureliaTemplating.bindable], {
+  }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'media', [_aureliaTemplating.bindable], {
     enumerable: true,
     initializer: null
-  }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'title', [_aureliaTemplating.bindable], {
+  }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'pubid', [_aureliaTemplating.bindable], {
     enumerable: true,
     initializer: null
-  }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'url', [_aureliaTemplating.bindable], {
+  }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'title', [_aureliaTemplating.bindable], {
+    enumerable: true,
+    initializer: null
+  }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'url', [_aureliaTemplating.bindable], {
     enumerable: true,
     initializer: null
   })), _class2)) || _class) || _class);

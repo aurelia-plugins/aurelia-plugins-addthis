@@ -5,11 +5,11 @@ export declare class AddThis {
     class: any;
     description: any;
     language: any;
+    media: any;
     pubid: any;
     title: any;
     url: any;
     constructor(element: any, config: any);
-    bind(): void;
-    _initialize(): Promise<void>;
+    bind(): Promise<void>;
     _loadApiScript(): void;
 }
