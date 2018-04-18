@@ -4,6 +4,10 @@ export let Config = class Config {
     this._config = { lang: 'en', pubid: '' };
   }
 
+  all() {
+    return this._config;
+  }
+
   get(key) {
     return this._config[key];
   }

@@ -10,7 +10,19 @@ An AddThis plugin for Aurelia.
 npm install aurelia-plugins-addthis --save
 ```
 
+When using Aurelia CLI add the following dependency to `aurelia.json`:
+
+```json
+{
+  "name": "aurelia-plugins-addthis",
+  "path": "../node_modules/aurelia-plugins-addthis/dist/amd",
+  "main": "aurelia-plugins-addthis"
+}
+```
+
 Add `node_modules/babel-polyfill/dist/polyfill.min.js` to the prepend list in `aurelia.json`. Do not forgot to add `babel-polyfill` to the dependencies in `package.json`.
+
+For projects using Webpack, please add `babel-polyfill` to your `webpack.config.js` as documented by [babeljs.io](https://babeljs.io/docs/usage/polyfill/#usage-in-node--browserify--webpack).
 
 **JSPM**
 
@@ -42,8 +54,8 @@ export async function configure(aurelia) {
       });
     });
 
-    await aurelia.start();
-    aurelia.setRoot('app');
+  await aurelia.start();
+  aurelia.setRoot('app');
 }
 ```
 

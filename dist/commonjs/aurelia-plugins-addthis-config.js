@@ -13,6 +13,10 @@ var Config = exports.Config = function () {
     this._config = { lang: 'en', pubid: '' };
   }
 
+  Config.prototype.all = function all() {
+    return this._config;
+  };
+
   Config.prototype.get = function get(key) {
     return this._config[key];
   };
